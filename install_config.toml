@@ -1,0 +1,105 @@
+[installer]
+version = "2.0.0"
+name = "Advanced Development Environment Installer"
+description = "Fully interactive, modern development environment setup"
+created = "2025-06-14T16:14:33.313063"
+ui_framework = "auto"
+theme = "catppuccin"
+log_level = "info"
+
+[system]
+supported_os = [ "linux", "macos", "windows",]
+supported_distros = [ "ubuntu", "debian", "fedora", "arch", "alpine",]
+
+[dotfiles]
+repository = ""
+backup_location = "~/.dotfiles-backup"
+symlink_strategy = "stow"
+auto_backup = true
+git_hooks = true
+
+[ui]
+animations = true
+progress_bars = true
+colors = true
+sound = false
+notifications = true
+ascii_art = true
+
+[security]
+verify_downloads = true
+gpg_verification = true
+secure_permissions = true
+audit_log = true
+
+[system.min_requirements]
+disk_space_gb = 10
+memory_gb = 4
+internet = true
+
+[tools.cli_tools]
+modern = [ "fzf", "ripgrep", "fd", "bat", "exa", "delta", "hyperfine", "jq", "htop", "tmux", "tree", "curl", "wget", "unzip",]
+optional = [ "neofetch", "figlet", "lolcat", "cmatrix", "cowsay",]
+
+[tools.essential.mise]
+name = "mise-en-place"
+description = "Universal tool version manager"
+url = "https://mise.jdx.dev"
+install_method = "curl"
+dependencies = [ "curl", "git",]
+auto_install = true
+priority = 1
+
+[tools.essential.git]
+name = "Git"
+description = "Version control system"
+url = "https://git-scm.com"
+install_method = "package_manager"
+auto_install = true
+priority = 2
+
+[tools.languages.python]
+name = "Python"
+description = "Python programming language"
+version = "3.12"
+tools = [ "uv", "ruff", "black", "pytest", "mypy",]
+auto_install = true
+interactive_config = true
+
+[tools.languages.nodejs]
+name = "Node.js"
+description = "JavaScript runtime"
+version = "lts"
+tools = [ "pnpm", "typescript", "eslint", "prettier",]
+auto_install = true
+interactive_config = true
+
+[tools.languages.go]
+name = "Go"
+description = "Go programming language"
+version = "latest"
+tools = [ "golangci-lint", "delve", "goimports",]
+auto_install = true
+interactive_config = true
+
+[tools.languages.rust]
+name = "Rust"
+description = "Systems programming language"
+version = "stable"
+tools = [ "cargo-edit", "cargo-watch", "sccache",]
+auto_install = true
+interactive_config = true
+
+[tools.editors.vscode]
+name = "Visual Studio Code"
+description = "Code editor"
+extensions = [ "ms-python.python", "rust-lang.rust-analyzer", "golang.go", "esbenp.prettier-vscode",]
+settings_sync = true
+
+[tools.shell.zsh]
+name = "Z Shell"
+description = "Advanced shell"
+framework = "oh-my-zsh"
+theme = "powerlevel10k"
+plugins = [ "zsh-autosuggestions", "zsh-syntax-highlighting", "fzf",]
+auto_configure = true
